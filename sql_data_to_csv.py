@@ -2,15 +2,16 @@
 import sqlite3
 import pandas as pd
 
-def scrape_routes(filepath: str='routes.csv', ascensionist_filter: int=50, quality_filter: int=2.0):
+def scrape_routes(filepath: str='routes.csv', ascensionist_filter: int=50, quality_filter: float=2.0, is_listed: int=1):
     #Connect to the SQLite database
     conn = sqlite3.connect('databases/kilter.db')
 
     # SQL Query for uuid, route name, path, angle, completions, avg diff., avg quality
-    sql_query = """
+    sql_query = f"""
     SELECT c.uuid, c.name, c.frames, cs.angle, cs.ascensionist_count, cs.difficulty_average, cs.quality_average
     FROM climbs c
-    JOIN climb_stats cs ON c.uuid = cs.climb_uuid;
+    JOIN climb_stats cs ON c.uuid = cs.climb_uuid
+    WHERE c.is_listed = {is_listed};
     """
 
     df = pd.read_sql_query(sql_query, conn)
@@ -37,5 +38,3 @@ def scrape_holds(filepath: str='holds.csv'):
     conn.close()
 
     df.to_csv(filepath, index=False)
-
-scrape_holds()

@@ -50,7 +50,7 @@ def plot_holds(r_frames, holdsfilepath: str='holds.csv'):
         else:
             dot = 'y'
         
-        plt.scatter(x, y, s=150, facecolors='none', edgecolors=dot)
+        plt.scatter(x, y, s=150, facecolors='none', edgecolors=dot, linewidths=2)
 
 def visualize_route(routesfilepath: str='routes.csv', holdsfilepath: str='holds.csv', random=True):
     # Read in routes to df.
