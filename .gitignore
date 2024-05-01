@@ -1,1 +1,7 @@
 config/
+assets/
+__pycache__
+holds.csv
+routes.csv
+.gitignore
+test.py
