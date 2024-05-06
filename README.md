@@ -9,10 +9,14 @@ The p{4 digit number} represents a hold ID which corresponds to the holds x and 
 
 Given the string-based route, we plan to use a similar approach as Recurrent Neural Network for MoonBoard Climbing Route Classification and Generation and preprocess our data to capture the nuances of a route's difficulty. This would proposedly involve calculating a difficulty feature vector for each climb based on a number of factors, including the difficulty of the route’s path, the difficulty of the route’s holds, foot placement along the climb, wall angle, distance between holds, and more. 
 
-
-
 Week 5:
 
 We have a working representation of data, with the ability to sort and parse/visualize our climbs. 
 
 Goal for this week is to find a more friendly way to represent data. Im thinking like a single value for EACH hold.
+
+May 6th:
+
+added difficulty grades hard coded to coordinate values. I need to double check with andrew about confirming the difficulty bc these are random. Also, double check regarding def normalizeDifficulty(difficulty).
+
+Also figure out how to preview routes on your own Malachi 
