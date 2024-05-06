@@ -1,0 +1,7 @@
+config/
+kilterdata.sqlite
+holds.csv
+filtered_sorted_data.csv
+resources.csv
+routes.csv
+.gitignore
