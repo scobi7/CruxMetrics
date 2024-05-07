@@ -1,10 +1,9 @@
-#transferring all the important data into csv file
 import sqlite3
 import pandas as pd
 
 def scrape_routes(filepath: str='routes.csv', ascensionist_filter: int=50, quality_filter: float=2.0, is_listed: int=1, layout_id: int=1):
-    #Connect to the SQLite database
-    conn = sqlite3.connect('databases/kilter.db')
+    # Connect to the SQLite database
+    conn = sqlite3.connect('kilterdata.sqlite')
 
     # SQL Query for uuid, route name, path, angle, completions, avg diff., avg quality
     sql_query = f"""
@@ -29,8 +28,8 @@ def scrape_routes(filepath: str='routes.csv', ascensionist_filter: int=50, quali
     df_filtered_sorted.to_csv(filepath, index=False)
 
 def scrape_holds(filepath: str='holds.csv'):
-    #Connect to the SQLite database
-    conn = sqlite3.connect('databases/kilter.db')
+    # Connect to the SQLite database
+    conn = sqlite3.connect('kilterdata.sqlite')
 
     # SQL Query for uuid, route name, path, angle, completions, avg diff., avg quality
     sql_query = """SELECT p.id, h.x, h.y
@@ -42,5 +41,3 @@ def scrape_holds(filepath: str='holds.csv'):
     conn.close()
 
     df.to_csv(filepath, index=False)
-
-scrape_routes()
