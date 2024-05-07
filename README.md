@@ -24,6 +24,8 @@ Also figure out how to preview routes on your own Malachi
 Week 6:
 
 Normalize values for hold difficulty, 0-1.
+    - Calculating difficulty. (distance from previous move [will likely need some sort of traversal algorithm] * hold difficulty const * board angle const)
+    - Consider average ape index to decide distance difficulty.
 Add features.
     - Total moves, spatial factors (distance)
 Create dataloader.
