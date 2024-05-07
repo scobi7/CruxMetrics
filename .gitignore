@@ -1,7 +1,8 @@
 config/
-kilterdata.sqlite
+assets/
+__pycache__
 holds.csv
-filtered_sorted_data.csv
-resources.csv
 routes.csv
 .gitignore
+databases/
+csv/

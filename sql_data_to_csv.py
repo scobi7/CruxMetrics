@@ -41,18 +41,3 @@ def scrape_holds(filepath: str='holds.csv'):
     conn.close()
 
     df.to_csv(filepath, index=False)
-
-def create_resources_csv():
-    # Call both scraping functions to create the CSV files
-    scrape_routes()
-    scrape_holds()
-
-    # Merge the two CSV files into one 'resources.csv'
-    routes_df = pd.read_csv('routes.csv')
-    holds_df = pd.read_csv('holds.csv')
-
-    resources_df = pd.concat([routes_df, holds_df], axis=1)
-    resources_df.to_csv('resources.csv', index=False)
-
-# Call the function to create the 'resources.csv' file
-create_resources_csv()
