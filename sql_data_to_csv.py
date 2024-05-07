@@ -42,3 +42,5 @@ def scrape_holds(filepath: str='holds.csv'):
     conn.close()
 
     df.to_csv(filepath, index=False)
+
+scrape_routes()
