@@ -20,3 +20,11 @@ May 6th:
 added difficulty grades hard coded to coordinate values. I need to double check with andrew about confirming the difficulty bc these are random. Also, double check regarding def normalizeDifficulty(difficulty).
 
 Also figure out how to preview routes on your own Malachi 
+
+Week 6:
+
+Normalize values for hold difficulty, 0-1.
+Add features.
+    - Total moves, spatial factors (distance)
+Create dataloader.
+    - Sparse matrix and features, label
