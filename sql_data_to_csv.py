@@ -98,7 +98,7 @@ def create_hdf5(filepath: str='csv/routes.csv', ascensionist_filter: int=20, qua
             # plt.title(f'V{r_label}, angle: {r_angle}')
             # plt.imshow(np.flipud(img), origin='lower', extent=[0, 143.625, 0, 158])
             # plt.show()
-                        
+        
     hf = h5py.File('data.h5', 'w')
 
     ds = np.array([(matrix, label) for matrix, label in zip(matrices, labels)])

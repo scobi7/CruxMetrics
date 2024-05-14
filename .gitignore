@@ -4,5 +4,5 @@ __pycache__
 holds.csv
 routes.csv
 .gitignore
-databases/
+db/
 csv/
