@@ -5,7 +5,7 @@ import scipy.sparse as sp
 import matplotlib.pyplot as plt
 from preview_routes import normalizeDifficulty, plot_holds, visualize_route
 
-routes = pd.read_csv('routes.csv')
+routes = pd.read_csv('csv/routes.csv')
 
 all_x = set()
 all_y = set()
@@ -37,7 +37,7 @@ manual_difficulty_assignments = {
     (152, 88): 3    
 }
 
-with open('holds.csv', mode='r') as infile:
+with open('csv/holds.csv', mode='r') as infile:
     reader = csv.reader(infile)
     holddict = dict((rows[0],[rows[1],rows[2]]) for rows in reader)
 
@@ -50,43 +50,21 @@ for frame in r_frames.split("p")[1:]:
     all_x.add(x)
     all_y.add(y)
 
-     #----- Binary Matrix
-    #mat[x, y] = 1
+    #----- Binary Matrix
+    mat[x, y] = 1
 
-# print(mat)
-
-# r_name = route['name']
-# r_angle = route['angle']
-# r_difficulty = normalizeDifficulty(round(route['difficulty_average']))
-# plot_holds(route['frames'], 'holds.csv')
-
-# plt.title(f'{r_name}, V{r_difficulty}, angle: {r_angle}')
-
-# Extent changes x/y scale, still wonky but looks pretty good ?
-# img = plt.imread("assets/kilterbg.jpg")
-
-# plt.imshow(np.flipud(img), origin='lower', extent=[0, 143.625, 0, 158])
-# plt.show()
-
-
-# # Extent changes x/y scale, still wonky but looks pretty good ?
-# plt.imshow(np.flipud(img), origin='lower', extent=[0, 143.625, 0, 158])
-# plt.show()
-        
-# print(len(all_x)) #42
-# print(len(all_y)) #38
+print(type(mat))
 
 # plot_holds(r_frames)
 # visualize_route()
-=======
-    #----- Non-binary Matrix
-    if (y, x) in manual_difficulty_assignments:
-        difficulty_value = manual_difficulty_assignments[(y, x)]
-    else:
-        # Assign a default value if coordinate not found in manual_difficulty_assignments
-        difficulty_value = 1  # You can adjust the default value as needed
+#     #----- Non-binary Matrix
+#     if (y, x) in manual_difficulty_assignments:
+#         difficulty_value = manual_difficulty_assignments[(y, x)]
+#     else:
+#         # Assign a default value if coordinate not found in manual_difficulty_assignments
+#         difficulty_value = 1  # You can adjust the default value as needed
 
-    mat[y, x] = difficulty_value
+#     mat[y, x] = difficulty_value
 
-dense_mat = mat.toarray()
-print(mat)
+# dense_mat = mat.toarray()
+# print(mat)
