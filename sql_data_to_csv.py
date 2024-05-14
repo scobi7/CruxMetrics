@@ -88,8 +88,8 @@ def create_hdf5(filepath: str='csv/routes.csv', ascensionist_filter: int=20, qua
 
                 mat[x, y] = 1
 
-            matrices.append(mat)
-            labels.append(r_label)
+            matrices.append(mat.toarray())
+            labels.append(r_label) 
 
             # print(mat, r_label)
 
@@ -101,13 +101,7 @@ def create_hdf5(filepath: str='csv/routes.csv', ascensionist_filter: int=20, qua
         
     hf = h5py.File('data.h5', 'w')
 
-    ds = np.array([(matrix, label) for matrix, label in zip(matrices, labels)])
-
-    print(ds.astype(np.int64))
-
-    hf.create_dataset('routes', data=ds)
+    hf.create_dataset('routes', data=matrices, dtype='int8')
+    hf.create_dataset('labels', data=labels, dtype='int8')
 
     hf.close
-
-
-create_hdf5()

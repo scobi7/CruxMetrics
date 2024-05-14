@@ -6,3 +6,4 @@ routes.csv
 .gitignore
 db/
 csv/
+data.h5
